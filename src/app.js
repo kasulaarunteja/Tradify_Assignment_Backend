@@ -7,7 +7,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const { register, login } = require('./controllers/auth.controller')
-
+const  {router} = require("./controllers/Postjob.controller");
 
 app.use(
   cors({
@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
 app.use(express.json())
 app.post('/register', register)
 app.post('/login', login)
-
+app.use('/', router)
 
 const PORT = process.env.PORT || 8080
 
