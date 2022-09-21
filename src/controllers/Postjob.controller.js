@@ -35,9 +35,9 @@ router.patch('/postjob/:id', async (req, res) => {
 
 router.delete('/postjob/:id', async (req, res) => {
   try {
-    const postjob = await Post.findByIdAndDelete(req.params.id).lean().exec()
+    const postjob = await Post.findByIdAndDelete(req.params.id)
 
-    return res.send(postjob)
+    return res.send("deleted successful")
   } catch (err) {
     return res.status(500).send(err.message)
   }

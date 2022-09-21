@@ -8,6 +8,9 @@ require('dotenv').config()
 
 const { register, login } = require('./controllers/auth.controller')
 const  {router} = require("./controllers/Postjob.controller");
+const Applicants = require('./Routes/applicaten.routes')
+const { upload } = require('./controllers/uploadFile')
+
 
 app.use(
   cors({
@@ -22,6 +25,7 @@ app.get('/', (req,res) => {
 })
 
 
+app.use("/appli",Applicants)
 app.use(express.json())
 app.post('/register', register)
 app.post('/login', login)
@@ -29,15 +33,6 @@ app.use('/', router)
 
 const PORT = process.env.PORT || 8080
 
-// app.listen(PORT, async () => {
-//   try {
-//     await connect()
-//     console.log(`listing ${PORT}`)
-//   } catch (err) {
-//     console.log('err', err)
-//   }
-  
-// })
 
 app.listen(PORT, async () => {
 	try {
