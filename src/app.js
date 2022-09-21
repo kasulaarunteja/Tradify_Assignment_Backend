@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
 })
 
 
-app.use("/appli",Applicants)
+app.use("/",Applicants)
 app.use(express.json())
 app.post('/register', register)
 app.post('/login', login)
